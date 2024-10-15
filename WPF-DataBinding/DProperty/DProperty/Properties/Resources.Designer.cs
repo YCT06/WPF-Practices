@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DependencyProperty.Properties
+namespace DProperty.Properties
 {
 
 
@@ -44,7 +44,7 @@ namespace DependencyProperty.Properties
 			{
 				if ((resourceMan == null))
 				{
-					global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DependencyProperty.Properties.Resources", typeof(Resources).Assembly);
+					global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DProperty.Properties.Resources", typeof(Resources).Assembly);
 					resourceMan = temp;
 				}
 				return resourceMan;
