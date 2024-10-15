@@ -8,7 +8,7 @@ namespace DProperty
 {
 	public class MyDataContext
 	{
-		private double _myValue;
+		private double _myValue = 123.45;
 		public double MyValue
 		{
 			get => _myValue;
