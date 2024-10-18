@@ -1,0 +1,56 @@
+﻿<Window x:Class="ControlTemplateSample002.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ControlTemplateSample002"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources >
+        <ControlTemplate TargetType="local:MyButton" x:Key="CircleButton">
+            <ControlTemplate.Resources >
+                <Style TargetType="Path" x:Key="egg">
+                    <Setter Property="Data" Value="M14.071157,0.0014877309C14.176168,-0.00049591031 14.281148,-0.00049591031 14.387166,0.0014877309 15.126147,0.017509427 15.88414,0.15151186 16.657146,0.43050327 21.415126,2.1474798 24.532089,6.4944866 26.374124,10.560489 26.587135,11.030489 26.783119,11.497468 26.964086,11.956482 29.156095,17.551473 28.014133,25.212438 22.608114,29.297453 17.627145,33.059439 9.6491762,32.868429 4.9021836,28.883451 3.6681788,27.84845 2.4101878,26.452457 1.6781959,25.109442 -1.7387845,18.848467 0.37720539,10.652468 5.1851717,5.3144963 7.2941733,2.9714833 10.439182,0.087486098 14.071157,0.0014877309z" />
+                </Style>
+                <Style TargetType="Path" x:Key="chicken">
+                    <Setter Property="Data" Value="M16.737992,17.076001L12.78999,21.008008 9.0479817,17.163007 5.4339652,21.362012 2.1660175,19.039014C3.1779813,25.242993 8.6889729,30.000012 15.31697,30.000012 22.066977,30.000012 27.66,25.065015 28.519986,18.693006L25.287011,20.382001 22.146018,17.178998 19.795002,20.553998z M14.652926,6.0650043C15.125923,6.0650043 15.508919,6.4400053 15.508919,6.903007 15.508919,7.3660083 15.125923,7.7410097 14.652926,7.7410097 14.179929,7.7410097 13.795932,7.3660083 13.795932,6.903007 13.795932,6.4400053 14.179929,6.0650043 14.652926,6.0650043z M15.219955,2.0000019C12.34295,2.0000019,10.001947,3.9520035,10.001947,6.3520055L8.6777968,6.3520055 6.2319464,7.8090134 9.2395367,9.34201 10.001916,9.34201 10.001916,9.7306018 10.04393,9.7520165 10.001916,9.834424 10.001916,15.27667 12.812024,18.164014 16.836014,14.158002 19.612996,17.316998 21.015963,15.30336 21.015963,6.3520055C21.015963,3.9520035,18.67496,2.0000019,15.797956,2.0000019z M15.219955,0L15.797956,0C19.777962,0,23.015967,2.8500023,23.015967,6.3520055L23.015967,15.209625 25.67599,17.922986 30.634001,15.33299 30.634001,16.983014C30.634001,25.263989 23.763024,32.000012 15.31697,32.000012 6.8709783,32.000012 -1.4745456E-07,25.263989 0,16.983014L0,15.046003 5.1069994,18.677014 8.0019164,15.311267 8.0019164,10.955297 2.0949649,7.9460135 8.4445242,4.162035 8.5702109,3.8820972C9.6676964,1.6031265,12.2357,0,15.219955,0z"  />
+                </Style>
+            </ControlTemplate.Resources>
+            <Grid>
+                <!--<Ellipse Width="{TemplateBinding Width}"
+                         Height="{TemplateBinding Height}"
+                         StrokeThickness="{TemplateBinding StrokeThickness}"
+                         Stroke="{TemplateBinding BorderBrush}"
+                         Fill="{TemplateBinding Background}"/>-->
+                <Path Style="{StaticResource egg}" x:Name="path"
+                      Width="{TemplateBinding Width}" 
+                      Height="{TemplateBinding Height}"
+                      StrokeThickness="{TemplateBinding StrokeThickness}" 
+                      Stroke="{TemplateBinding BorderBrush}"
+                      Fill="{TemplateBinding Background}"
+                      Stretch="Uniform" 
+                      RenderTransformOrigin="0.5,0.5">
+                    <Path.RenderTransform>
+                        <TransformGroup >
+                            <ScaleTransform ScaleX="0.5" ScaleY="0.5" />
+                        </TransformGroup>
+                    </Path.RenderTransform>
+                </Path>
+                <ContentPresenter VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  ContentSource="Content"/>
+            </Grid>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter TargetName="path" Property="Style" Value="{StaticResource chicken}"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Window.Resources>
+    <Grid>
+        <local:MyButton Template="{StaticResource CircleButton}" Width="100" Height="100"
+                Content="Click" StrokeThickness="5" BorderBrush="Blue" Background="YellowGreen">
+
+        </local:MyButton>
+    </Grid>
+</Window>

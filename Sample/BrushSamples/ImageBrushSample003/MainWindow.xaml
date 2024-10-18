@@ -1,0 +1,65 @@
+﻿<Window x:Class="ImageBrushSample003.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ImageBrushSample003"
+        xmlns:opt="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="1024">
+    <Grid>
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="500"/>
+            <ColumnDefinition Width="500"/>
+        </Grid.ColumnDefinitions>
+        <Grid >
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" Grid.Column="0" Background="Blue" Opacity="0.3"/>
+            <Border Grid.Row="0" Grid.Column="1" Background="Yellow"  Opacity="0.3"/>
+            <Border Grid.Row="1" Grid.Column="0" Background="Yellow"  Opacity="0.3"/>
+            <Border Grid.Row="1" Grid.Column="1" Background="Blue" Opacity="0.3"/>
+        </Grid>
+        <!-- TileMode -->
+        <Border Height="480" Width="480" BorderBrush="Black" BorderThickness="2" 
+                VerticalAlignment="Center" HorizontalAlignment="Center" >
+            <Border.Background >
+                <ImageBrush ImageSource="Images/1.jpg" 
+                            ViewportUnits="Absolute" 
+                            Viewport="0 0 100 100"
+                            TileMode="Tile"    
+                            Stretch="Uniform" 
+                            Opacity="1"
+                            opt:Freeze="True"/>
+            </Border.Background>
+        </Border>
+        <Grid Grid.Column="1" >
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" Grid.Column="0" Background="Blue" Opacity="0.3"/>
+            <Border Grid.Row="0" Grid.Column="1" Background="Yellow"  Opacity="0.3"/>
+            <Border Grid.Row="1" Grid.Column="0" Background="Yellow"  Opacity="0.3"/>
+            <Border Grid.Row="1" Grid.Column="1" Background="Blue" Opacity="0.3"/>
+        </Grid>
+        <Border Height="480" Width="480" Grid.Column="1" BorderBrush="Black" BorderThickness="2"
+                 VerticalAlignment="Center" HorizontalAlignment="Center" >
+            <Border.Background >
+                <ImageBrush  ImageSource="Images/1.jpg"                            
+                            Stretch="None"
+                            Opacity="0.5" />
+            </Border.Background>
+        </Border>
+    </Grid>
+</Window>

@@ -1,0 +1,23 @@
+﻿<Window x:Class="LinerGradientBrushSample001.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LinerGradientBrushSample001"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Border Margin="16">
+            <Border.Background >
+                <LinearGradientBrush StartPoint="0,1" EndPoint="0.5,0.5" 
+                                     MappingMode="RelativeToBoundingBox" 
+                                     SpreadMethod="Reflect" Opacity="0.7"   >
+                    <GradientStop Color="Yellow"/>
+                    <GradientStop Color="Red" Offset="0.161"/>
+                    <GradientStop Color="Blue" Offset="0.9"/>
+                   
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+    </Grid>
+</Window>
