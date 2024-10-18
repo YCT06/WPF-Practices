@@ -5,10 +5,31 @@
         xmlns:local="clr-namespace:Source"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         Title="MainWindow"
-        Width="800"
-        Height="450"
+        Width="400"
+        Height="400"
         mc:Ignorable="d">
-    <Grid Background="Red">
-        <Button Content="Button" Foreground="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid, AncestorLevel=1}, Path=Background}" />
+    <Grid>
+        <ListBox Margin="10" ItemsSource="{Binding People}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="5" Orientation="Vertical">
+                        <!--  顯示當前項目的姓名  -->
+                        <TextBlock FontSize="14"
+                                   FontWeight="Bold"
+                                   Text="{Binding Name}" />
+
+                        <!--  顯示前一個項目的姓名  -->
+                        <TextBlock Text="Previous Name:">
+                            <TextBlock.Inlines>
+                                <Run Text="{Binding RelativeSource={RelativeSource PreviousData}, Path=Name}" />
+                            </TextBlock.Inlines>
+                        </TextBlock>
+
+                        <!--  顯示年齡  -->
+                        <TextBlock FontStyle="Italic" Text="{Binding Age}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Window>
