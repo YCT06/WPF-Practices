@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35312.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotifyPropertyChanged", "NotifyPropertyChanged\NotifyPropertyChanged.csproj", "{B1C01158-5D03-4252-9DB9-42F29AEA927B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B1C01158-5D03-4252-9DB9-42F29AEA927B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1C01158-5D03-4252-9DB9-42F29AEA927B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1C01158-5D03-4252-9DB9-42F29AEA927B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1C01158-5D03-4252-9DB9-42F29AEA927B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {10F4DD3F-0CBE-4ED4-B73D-E37459E622C7}
+	EndGlobalSection
+EndGlobal

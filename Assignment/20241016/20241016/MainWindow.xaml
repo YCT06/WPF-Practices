@@ -7,77 +7,113 @@
         Title="MainWindow"
         Width="800"
         Height="450"
+        d:DataContext="{d:DesignInstance local:MainWindowViewModel,
+                                         IsDesignTimeCreatable=True}"
         mc:Ignorable="d">
+    <Window.DataContext>
+        <local:MainWindowViewModel />
+    </Window.DataContext>
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-        <ComboBox Margin="0,0,0,5" ItemsSource="{Binding Stations}">
-            <ComboBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Text="{Binding StationID}" />
-                        <TextBlock Text="{Binding StationName}" />
-                        <TextBlock Text="{Binding IsEquipError}" />
-                    </StackPanel>
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-        </ComboBox>
-        <UniformGrid HorizontalAlignment="Center"
+        <!--<ComboBox Margin="0,0,0,5"
+                  d:SelectedIndex="0"
+                  ItemTemplate="{StaticResource StationData}"
+                  ItemsSource="{Binding Stations}"
+                  SelectedItem="{Binding SelectedStation}"
+                  SelectedIndex="1" />-->
+        <!--<UniformGrid HorizontalAlignment="Center"
                      VerticalAlignment="Center"
                      Rows="1">
-            <Button Content="{Binding Stations[0]}">
-                <Button.ContentTemplate>
-                    <DataTemplate>
-                        <StackPanel>
-                            <TextBlock Text="{Binding StationID}" />
-                            <TextBlock Text="{Binding StationName}" />
-                            <TextBlock Text="{Binding IsEquipError}" />
-                        </StackPanel>
-                    </DataTemplate>
-                </Button.ContentTemplate>
-            </Button>
-            <Button Content="{Binding Stations[1]}">
-                <Button.ContentTemplate>
-                    <DataTemplate>
-                        <StackPanel>
-                            <TextBlock Text="{Binding StationID}" />
-                            <TextBlock Text="{Binding StationName}" />
-                            <TextBlock Text="{Binding IsEquipError}" />
-                        </StackPanel>
-                    </DataTemplate>
-                </Button.ContentTemplate>
-            </Button>
-            <Button Content="{Binding Stations[2]}">
-                <Button.ContentTemplate>
-                    <DataTemplate>
-                        <StackPanel>
-                            <TextBlock Text="{Binding StationID}" />
-                            <TextBlock Text="{Binding StationName}" />
-                            <TextBlock Text="{Binding IsEquipError}" />
-                        </StackPanel>
-                    </DataTemplate>
-                </Button.ContentTemplate>
-            </Button>
-            <Button Content="{Binding Stations[3]}">
-                <Button.ContentTemplate>
-                    <DataTemplate>
-                        <StackPanel>
-                            <TextBlock Text="{Binding StationID}" />
-                            <TextBlock Text="{Binding StationName}" />
-                            <TextBlock Text="{Binding IsEquipError}" />
-                        </StackPanel>
-                    </DataTemplate>
-                </Button.ContentTemplate>
-            </Button>
-            <Button Content="{Binding Stations[4]}">
-                <Button.ContentTemplate>
-                    <DataTemplate>
-                        <StackPanel>
-                            <TextBlock Text="{Binding StationID}" />
-                            <TextBlock Text="{Binding StationName}" />
-                            <TextBlock Text="{Binding IsEquipError}" />
-                        </StackPanel>
-                    </DataTemplate>
-                </Button.ContentTemplate>
-            </Button>
+            <Button Content="{Binding Stations[0]}" ContentTemplate="{StaticResource StationData}" />
+            <Button Content="{Binding Stations[1]}" ContentTemplate="{StaticResource StationData}" />
+            <Button Content="{Binding Stations[2]}" ContentTemplate="{StaticResource StationData}" />
+            <Button Content="{Binding Stations[3]}" ContentTemplate="{StaticResource StationData}" />
+            <Button Content="{Binding Stations[4]}" ContentTemplate="{StaticResource StationData}" />
+        </UniformGrid>-->
+        <!--<UniformGrid HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     Rows="1">
+            <UniformGrid.Resources>
+                <local:BoolToColorConverter x:Key="BoolToColorConverter" />
+                <local:EqualityToBoolConverter x:Key="EqualityToBoolConverter" />
+            </UniformGrid.Resources>
+            <RadioButton x:Name="station0Radio"
+                         Background="{Binding Stations[0].IsEquipError, Converter={StaticResource BoolToColorConverter}}"
+                         Content="{Binding Stations[0]}"
+                         ContentTemplate="{StaticResource StationData}"
+                         IsChecked="{Binding SelectedStationID, Converter={StaticResource EqualityToBoolConverter}, ConverterParameter='S001'}" />
+            <RadioButton x:Name="station1Radio"
+                         Background="{Binding Stations[1].IsEquipError, Converter={StaticResource BoolToColorConverter}}"
+                         Content="{Binding Stations[1]}"
+                         ContentTemplate="{StaticResource StationData}"
+                         IsChecked="{Binding SelectedStationID, Converter={StaticResource EqualityToBoolConverter}, ConverterParameter='S002'}" />
+            <RadioButton x:Name="station2Radio"
+                         Background="{Binding Stations[2].IsEquipError, Converter={StaticResource BoolToColorConverter}}"
+                         Content="{Binding Stations[2]}"
+                         ContentTemplate="{StaticResource StationData}"
+                         IsChecked="{Binding SelectedStationID, Converter={StaticResource EqualityToBoolConverter}, ConverterParameter='S003'}" />
+            <RadioButton x:Name="station3Radio"
+                         Background="{Binding Stations[3].IsEquipError, Converter={StaticResource BoolToColorConverter}}"
+                         Content="{Binding Stations[3]}"
+                         ContentTemplate="{StaticResource StationData}"
+                         IsChecked="{Binding SelectedStationID, Converter={StaticResource EqualityToBoolConverter}, ConverterParameter='S004'}" />
+            <RadioButton x:Name="station4Radio"
+                         Background="{Binding Stations[4].IsEquipError, Converter={StaticResource BoolToColorConverter}}"
+                         Content="{Binding Stations[4]}"
+                         ContentTemplate="{StaticResource StationData}"
+                         IsChecked="{Binding SelectedStationID, Converter={StaticResource EqualityToBoolConverter}, ConverterParameter='S005'}" />
         </UniformGrid>
+        <TextBlock Margin="10"
+                   d:Text="selectedstation"
+                   FontSize="16"
+                   Text="{Binding SelectedStationID}" />-->
+
+
+        <!--<ContentPresenter Content="{Binding SelectedStation}" ContentTemplate="{StaticResource StationData}" />-->
+        <ContentControl Content="{Binding SelectedStation}" ContentTemplate="{StaticResource StationData}" />
+
+
+
+        <!--<ItemsPresenter ></ItemsPresenter>-->
+        <ItemsControl ItemsSource="{Binding Stations}" ItemTemplate="{StaticResource StationData}"></ItemsControl>
+
+
+
+
+
+
+
+
+
+
+
+        <!--<TextBlock Margin="10"
+                   d:Text="selectedstation"
+                   FontSize="16">
+            <TextBlock.Style>
+                <Style TargetType="TextBlock">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsChecked, ElementName=station0Radio}" Value="True">
+                            <Setter Property="Text" Value="{Binding Stations[0].StationID}" />
+                        </DataTrigger>
+
+                        <DataTrigger Binding="{Binding IsChecked, ElementName=station1Radio}" Value="True">
+                            <Setter Property="Text" Value="{Binding Stations[1].StationID}" />
+                        </DataTrigger>
+
+                        <DataTrigger Binding="{Binding IsChecked, ElementName=station2Radio}" Value="True">
+                            <Setter Property="Text" Value="{Binding Stations[2].StationID}" />
+                        </DataTrigger>
+
+                        <DataTrigger Binding="{Binding IsChecked, ElementName=station3Radio}" Value="True">
+                            <Setter Property="Text" Value="{Binding Stations[3].StationID}" />
+                        </DataTrigger>
+
+                        <DataTrigger Binding="{Binding IsChecked, ElementName=station4Radio}" Value="True">
+                            <Setter Property="Text" Value="{Binding Stations[4].StationID}" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>-->
     </StackPanel>
 </Window>

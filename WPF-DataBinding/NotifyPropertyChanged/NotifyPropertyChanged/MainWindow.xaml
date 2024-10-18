@@ -1,0 +1,18 @@
+﻿<Window x:Class="NotifyPropertyChanged.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:NotifyPropertyChanged"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="MainWindow"
+        Width="400"
+        Height="400"
+        mc:Ignorable="d">
+    <Window.DataContext>
+        <local:MyDataContext />
+    </Window.DataContext>
+    <StackPanel>
+        <Slider Name="slider" Value="{Binding MyValue}" />
+        <Button Click="Button_Click" Content="+1" />
+    </StackPanel>
+</Window>

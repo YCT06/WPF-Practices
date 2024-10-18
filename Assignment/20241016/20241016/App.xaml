@@ -4,6 +4,12 @@
              xmlns:local="clr-namespace:_20241016"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <DataTemplate x:Key="StationData">
+            <StackPanel>
+                <TextBlock Text="{Binding StationID}" />
+                <TextBlock Text="{Binding StationName}" />
+                <TextBlock Text="{Binding IsEquipError}" />
+            </StackPanel>
+        </DataTemplate>
     </Application.Resources>
 </Application>
