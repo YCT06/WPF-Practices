@@ -11,7 +11,8 @@ namespace VM
 	{
 		public MainWindowViewModel()
 		{
-			ChangeMessage = new ChangeMessageCommand(this);
+			//ChangeMessage = new ChangeMessageCommand(this);
+			ChangeMessage = new RelayCommand(() => Message = "!!!");
 		}
 
 		private string _name = "c.y.c";
