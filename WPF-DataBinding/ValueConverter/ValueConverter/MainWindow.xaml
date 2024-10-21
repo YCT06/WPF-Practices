@@ -1,0 +1,20 @@
+﻿<Window x:Class="ValueConverter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:ValueConverter"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="MainWindow"
+        Width="800"
+        Height="450"
+        mc:Ignorable="d">
+    <Window.Resources>
+        <local:PlusOneConverter x:Key="converter" />
+    </Window.Resources>
+    <Window.DataContext>
+        <local:MyDataContext />
+    </Window.DataContext>
+    <Grid>
+        <Label Content="{Binding MyValue, Converter={StaticResource converter}}" />
+    </Grid>
+</Window>
