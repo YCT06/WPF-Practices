@@ -12,7 +12,7 @@ namespace VM
 		public MainWindowViewModel()
 		{
 			//ChangeMessage = new ChangeMessageCommand(this);
-			ChangeMessage = new RelayCommand(() => Message = "!!!");
+			ChangeMessage = new RelayCommand<string>((param) => Message = "!!!");
 		}
 
 		private string _name = "c.y.c";
